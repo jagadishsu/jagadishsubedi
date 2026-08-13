@@ -1,51 +1,727 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Jagadish Subedi Official Website</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" src="jagadish.jpg" alt="..." />
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-weight-light mb-0">Jagadish Subedi</h1>
-                <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">hardware & software Manager</p>
-                <nav>
-                    <a href="https://www.youtube.com/subedij"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.facebook.com/subedij"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://github.com/jagadishsu"><i class="fab fa-github"></i></a>
-                </nav>
-              
-               
-            </div>
-        </header>
-        <!-- Copyright Section-->
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>Copyright &copy; 2021 Jagadish Subedi</small></div>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="Jagadish Subedi — Hardware & Software Manager. POS systems, restaurant management, Medical Store Billing systems and retail hardware." />
+<meta name="author" content="Jagadish Subedi" />
+<title>Jagadish Subedi — Hardware &amp; Software Manager</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --ink:#0B1622;
+  --panel:#122335;
+  --panel-2:#152840;
+  --paper:#EDEFF2;
+  --muted:#8CA7BD;
+  --copper:#CC8A4A;
+  --copper-soft:#CC8A4A33;
+  --teal:#31B8A6;
+  --teal-soft:#31B8A633;
+  --line:#25405C;
+  --radius:14px;
+  --maxw:1120px;
+  font-size:16px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:'IBM Plex Sans', sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{
+  font-family:'Space Grotesk', sans-serif;
+  margin:0;
+  letter-spacing:-0.01em;
+}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+.mono{font-family:'IBM Plex Mono', monospace;}
+:focus-visible{outline:2px solid var(--teal); outline-offset:3px; border-radius:4px;}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.72rem;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--teal);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{content:""; width:18px; height:1px; background:var(--teal); display:inline-block;}
+
+/* ===== circuit trace signature ===== */
+.trace-rail{
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:2px;
+  background:linear-gradient(to bottom, var(--copper), var(--teal));
+  opacity:0.35;
+  transform:translateX(-1px);
+  z-index:0;
+}
+.node{
+  position:relative;
+  z-index:1;
+  width:11px;height:11px;
+  border-radius:50%;
+  background:var(--ink);
+  border:2px solid var(--teal);
+  margin:0 auto 18px;
+}
+@media (prefers-reduced-motion: no-preference){
+  .pulse{animation:pulse 2.6s ease-in-out infinite;}
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 var(--teal-soft);}
+  50%{box-shadow:0 0 0 8px transparent;}
+}
+
+/* ===== nav ===== */
+.site-nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(11,22,34,0.85);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.site-nav .wrap{
+  display:flex; align-items:center; justify-content:space-between;
+  height:68px;
+}
+.brand{display:flex; align-items:center; gap:10px; font-family:'Space Grotesk'; font-weight:700; font-size:1.05rem;}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--copper);}
+.nav-links{display:flex; gap:28px; font-size:0.92rem; font-weight:500;}
+.nav-links a{color:var(--muted); transition:color .2s;}
+.nav-links a:hover{color:var(--paper);}
+.nav-cta{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:0.8rem;
+  border:1px solid var(--teal);
+  color:var(--teal);
+  padding:8px 16px;
+  border-radius:8px;
+  transition:background .2s, color .2s;
+}
+.nav-cta:hover{background:var(--teal); color:var(--ink);}
+.nav-toggle{display:none; background:none; border:0; color:var(--paper); font-size:1.4rem;}
+
+/* ===== hero ===== */
+.hero{
+  position:relative;
+  padding:96px 0 80px;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.15fr 0.85fr;
+  gap:56px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(2.2rem, 4vw, 3.4rem);
+  font-weight:700;
+  line-height:1.08;
+  margin:18px 0 20px;
+}
+.hero h1 .accent{color:var(--copper);}
+.hero p.lead{
+  color:var(--muted);
+  font-size:1.08rem;
+  max-width:520px;
+  margin-bottom:32px;
+}
+.hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'IBM Plex Sans'; font-weight:600; font-size:0.94rem;
+  padding:13px 22px; border-radius:9px; cursor:pointer; border:1px solid transparent;
+  transition:transform .15s, box-shadow .15s, background .2s;
+}
+.btn-primary{background:var(--copper); color:var(--ink);}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px var(--copper-soft);}
+.btn-ghost{border-color:var(--line); color:var(--paper); background:transparent;}
+.btn-ghost:hover{border-color:var(--teal); color:var(--teal);}
+
+.hero-panel{
+  position:relative;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px;
+}
+.hero-panel .term-head{
+  display:flex; gap:6px; margin-bottom:16px;
+}
+.term-head span{width:10px;height:10px;border-radius:50%; background:var(--line);}
+.term-head span:nth-child(1){background:#C97C7C;}
+.term-head span:nth-child(2){background:#CFA14A;}
+.term-head span:nth-child(3){background:#4AC98B;}
+.term-line{font-family:'IBM Plex Mono'; font-size:0.86rem; color:var(--muted); margin-bottom:9px;}
+.term-line b{color:var(--teal); font-weight:500;}
+.term-line .c{color:var(--copper);}
+.stat-row{display:flex; gap:22px; margin-top:20px; padding-top:18px; border-top:1px solid var(--line);}
+.stat b{display:block; font-family:'Space Grotesk'; font-size:1.5rem; color:var(--paper);}
+.stat span{font-size:0.78rem; color:var(--muted);}
+
+/* ===== section shell ===== */
+.section{padding:88px 0; position:relative; border-bottom:1px solid var(--line);}
+.section-head{max-width:640px; margin-bottom:48px;}
+.section-head h2{font-size:clamp(1.7rem,2.6vw,2.3rem); margin-top:14px;}
+.section-head p{color:var(--muted); margin-top:14px; font-size:1.02rem;}
+
+/* ===== products ===== */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+  gap:20px;
+}
+.product-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px;
+  display:flex; flex-direction:column;
+  transition:border-color .2s, transform .2s;
+}
+.product-card:hover{border-color:var(--copper); transform:translateY(-3px);}
+.product-icon{
+  width:46px; height:46px;
+  border-radius:10px;
+  background:var(--copper-soft);
+  color:var(--copper);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem;
+  margin-bottom:16px;
+}
+.product-card h3{font-size:1.08rem; margin-bottom:6px;}
+.product-card .spec{color:var(--muted); font-size:0.9rem; margin-bottom:16px; flex-grow:1;}
+.product-tags{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px;}
+.tag{
+  font-family:'IBM Plex Mono'; font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em;
+  color:var(--teal); border:1px solid var(--teal); border-radius:20px; padding:3px 9px;
+}
+.price-row{display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid var(--line);}
+.price{font-family:'Space Grotesk'; font-weight:700; font-size:1.1rem;}
+.price small{font-family:'IBM Plex Sans'; font-weight:400; font-size:0.72rem; color:var(--muted); display:block;}
+.enquire-btn{
+  font-family:'IBM Plex Mono'; font-size:0.78rem; color:var(--copper);
+  border:1px solid var(--copper); border-radius:7px; padding:7px 12px; background:transparent; cursor:pointer;
+  transition:background .2s, color .2s;
+}
+.enquire-btn:hover{background:var(--copper); color:var(--ink);}
+
+/* ===== projects ===== */
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(300px,1fr));
+  gap:22px;
+}
+.project-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px;
+  cursor:pointer;
+  text-align:left;
+  width:100%;
+  color:var(--paper);
+  font-family:inherit;
+  display:flex; gap:16px; align-items:flex-start;
+  transition:border-color .2s, background .2s;
+}
+.project-card:hover{border-color:var(--teal); background:var(--panel-2);}
+.project-logo{
+  flex-shrink:0;
+  width:54px; height:54px;
+  border-radius:12px;
+  background:var(--teal-soft);
+  display:flex; align-items:center; justify-content:center;
+}
+.project-logo svg{width:30px; height:30px;}
+.project-info h3{font-size:1.05rem; margin-bottom:6px;}
+.project-info p{color:var(--muted); font-size:0.88rem; margin:0;}
+.project-info .mono{font-size:0.7rem; color:var(--copper); display:block; margin-top:8px; letter-spacing:0.05em;}
+
+/* ===== modal ===== */
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(6,12,20,0.72);
+  display:none; align-items:center; justify-content:center;
+  z-index:100; padding:20px;
+}
+.modal-overlay.open{display:flex;}
+.modal-box{
+  background:var(--panel); border:1px solid var(--line); border-radius:16px;
+  max-width:560px; width:100%; padding:34px; position:relative;
+  max-height:86vh; overflow-y:auto;
+}
+.modal-close{
+  position:absolute; top:18px; right:18px; background:none; border:0;
+  color:var(--muted); font-size:1.3rem; cursor:pointer; line-height:1;
+}
+.modal-close:hover{color:var(--paper);}
+.modal-head{display:flex; align-items:center; gap:16px; margin-bottom:20px;}
+.modal-head .project-logo{width:50px; height:50px;}
+.modal-box h3{font-size:1.3rem;}
+.modal-box .modal-sub{font-family:'IBM Plex Mono'; font-size:0.75rem; color:var(--teal);}
+.modal-box p.desc{color:var(--muted); margin:18px 0;}
+.feature-list{list-style:none; margin:0 0 20px; padding:0; display:grid; gap:9px;}
+.feature-list li{font-size:0.92rem; display:flex; gap:10px;}
+.feature-list li::before{content:"\f00c"; font-family:"Font Awesome 6 Free"; font-weight:900; color:var(--teal); font-size:0.75rem; margin-top:3px;}
+.stack-row{display:flex; gap:7px; flex-wrap:wrap;}
+
+/* ===== contact ===== */
+.contact-layout{display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px;}
+.contact-info-card{
+  background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:30px;
+}
+.contact-info-card .info-row{display:flex; gap:14px; margin-bottom:20px; align-items:flex-start;}
+.contact-info-card .info-row i{color:var(--copper); font-size:1.1rem; margin-top:3px; width:20px;}
+.contact-info-card .info-row b{display:block; font-size:0.95rem;}
+.contact-info-card .info-row span{color:var(--muted); font-size:0.88rem;}
+.social-row{display:flex; gap:10px; margin-top:24px;}
+.social-row a{
+  width:38px; height:38px; border-radius:50%; border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; color:var(--muted);
+  transition:border-color .2s, color .2s;
+}
+.social-row a:hover{border-color:var(--teal); color:var(--teal);}
+
+.contact-form{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:30px;}
+.field{margin-bottom:18px;}
+.field label{display:block; font-size:0.82rem; color:var(--muted); margin-bottom:7px; font-family:'IBM Plex Mono';}
+.field input, .field select, .field textarea{
+  width:100%; background:var(--ink); border:1px solid var(--line); border-radius:8px;
+  padding:11px 13px; color:var(--paper); font-family:'IBM Plex Sans'; font-size:0.94rem;
+}
+.field input:focus, .field select:focus, .field textarea:focus{border-color:var(--teal); outline:none;}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.form-note{font-size:0.8rem; color:var(--muted); margin-top:12px;}
+#formStatus{margin-top:14px; font-size:0.88rem; color:var(--teal); display:none;}
+
+/* ===== footer ===== */
+footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;}
+
+/* ===== responsive ===== */
+@media (max-width: 860px){
+  .hero-grid{grid-template-columns:1fr;}
+  .contact-layout{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .nav-toggle{display:block;}
+}
+@media (max-width: 480px){
+  .field-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body id="page-top">
+
+<!-- ===== NAV ===== -->
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="#page-top" class="brand"><span class="dot"></span>Jagadish Subedi</a>
+    <div class="nav-links">
+      <a href="#products">Products</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="trace-rail" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Hardware &amp; Software Manager</span>
+      <h1>I build the systems<br>businesses <span class="accent">run</span> on.</h1>
+      <p class="lead">From the barcode scanner on the counter to the billing software behind it — I design, install and support POS, restaurant and Medical Store Billing systems for businesses across Nepal.</p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-diagram-project"></i> View completed work</a>
+        <a href="#products" class="btn btn-ghost"><i class="fa-solid fa-cart-shopping"></i> Browse hardware</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="term-head"><span></span><span></span><span></span></div>
+      <div class="term-line"><span class="c">$</span> status --systems</div>
+      <div class="term-line">POS terminals &nbsp;<b>online</b></div>
+      <div class="term-line">Billing service &nbsp;<b>online</b></div>
+      <div class="term-line">Support queue &nbsp;<b>0 pending</b></div>
+      <div class="stat-row">
+        <div class="stat"><b>3+</b><span>Systems shipped</span></div>
+        <div class="stat"><b>24/7</b><span>Hardware support</span></div>
+        <div class="stat"><b>100%</b><span>On-site setup</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== PRODUCTS / SALES ===== -->
+<section class="section" id="products">
+  <div class="wrap">
+    <div class="node pulse"></div>
+    <div class="section-head">
+      <span class="eyebrow">On sale</span>
+      <h2>Hardware &amp; software, ready to deploy</h2>
+      <p>Point-of-sale hardware and licensed software, set up and configured on-site. Prices in NPR — tap Enquire to ask about stock or bulk pricing.</p>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-icon"><i class="fa-solid fa-cash-register"></i></div>
+        <h3>POS Terminal Bundle</h3>
+        <p class="spec">15" touchscreen terminal, receipt printer, cash drawer &amp; barcode scanner — pre-loaded with billing software.</p>
+        <div class="product-tags"><span class="tag">Bundle</span><span class="tag">Retail</span></div>
+        <div class="price-row">
+          <div class="price">Rs 45,000<small>one-time</small></div>
+          <button class="enquire-btn" data-product="POS Terminal Bundle">Enquire</button>
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon"><i class="fa-solid fa-receipt"></i></div>
+        <h3>Thermal Receipt Printer</h3>
+        <p class="spec">80mm high-speed thermal printer with USB &amp; LAN, compatible with all systems below.</p>
+        <div class="product-tags"><span class="tag">Hardware</span></div>
+        <div class="price-row">
+          <div class="price">Rs 8,500<small>one-time</small></div>
+          <button class="enquire-btn" data-product="Thermal Receipt Printer">Enquire</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon"><i class="fa-solid fa-barcode"></i></div>
+        <h3>2D Barcode Scanner</h3>
+        <p class="spec">Handheld wired scanner, reads QR &amp; barcodes for fast checkout and inventory counts.</p>
+        <div class="product-tags"><span class="tag">Hardware</span></div>
+        <div class="price-row">
+          <div class="price">Rs 6,200<small>one-time</small></div>
+          <button class="enquire-btn" data-product="2D Barcode Scanner">Enquire</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon"><i class="fa-solid fa-box-archive"></i></div>
+        <h3>Cash Drawer</h3>
+        <p class="spec">Heavy-duty 5-note / 8-coin steel cash drawer with printer-triggered auto-open.</p>
+        <div class="product-tags"><span class="tag">Hardware</span></div>
+        <div class="price-row">
+          <div class="price">Rs 5,800<small>one-time</small></div>
+          <button class="enquire-btn" data-product="Cash Drawer">Enquire</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon"><i class="fa-solid fa-kitchen-set"></i></div>
+        <h3>Restaurant KOT Printer Kit</h3>
+        <p class="spec">Kitchen order ticket printer + counter printer pair, networked for table-to-kitchen orders.</p>
+        <div class="product-tags"><span class="tag">Bundle</span><span class="tag">Restaurant</span></div>
+        <div class="price-row">
+          <div class="price">Rs 12,000<small>one-time</small></div>
+          <button class="enquire-btn" data-product="Restaurant KOT Printer Kit">Enquire</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <h3>Billing Software License</h3>
+        <p class="spec">Custom billing &amp; inventory software license with one year of updates and remote support.</p>
+        <div class="product-tags"><span class="tag">Software</span></div>
+        <div class="price-row">
+          <div class="price">Rs 15,000<small>per year</small></div>
+          <button class="enquire-btn" data-product="Billing Software License">Enquire</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="node pulse"></div>
+    <div class="section-head">
+      <span class="eyebrow">Completed projects</span>
+      <h2>Systems built and shipped</h2>
+      <p>Click any project to see what it does, its features, and the stack behind it.</p>
+    </div>
+
+    <div class="project-grid">
+
+      <button class="project-card" data-project="pos">
+        <span class="project-logo">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="8" width="32" height="20" rx="3" stroke="#31B8A6" stroke-width="2.2"/>
+            <path d="M4 14H36" stroke="#31B8A6" stroke-width="2.2"/>
+            <path d="M11 28V33M29 28V33" stroke="#CC8A4A" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="12" cy="19.5" r="1.6" fill="#CC8A4A"/>
+            <circle cx="18" cy="19.5" r="1.6" fill="#CC8A4A"/>
+            <circle cx="24" cy="19.5" r="1.6" fill="#CC8A4A"/>
+          </svg>
+        </span>
+        <span class="project-info">
+          <h3>POS System</h3>
+          <p>Point-of-sale software for retail checkout, inventory &amp; daily sales reports.</p>
+          <span class="mono">RETAIL · DESKTOP + WEB</span>
+        </span>
+      </button>
+
+      <button class="project-card" data-project="restaurant">
+        <span class="project-logo">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="10" stroke="#31B8A6" stroke-width="2.2"/>
+            <path d="M12 12L9 9M28 12L31 9" stroke="#CC8A4A" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M20 15V25M16 20H24" stroke="#31B8A6" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="project-info">
+          <h3>Restaurant Management System</h3>
+          <p>Table ordering, kitchen ticket printing and billing for full-service restaurants.</p>
+          <span class="mono">HOSPITALITY · WEB APP</span>
+        </span>
+      </button>
+
+      <button class="project-card" data-project="medical">
+        <span class="project-logo">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="17" y="6" width="6" height="28" rx="2" fill="#CC8A4A"/>
+            <rect x="6" y="17" width="28" height="6" rx="2" fill="#CC8A4A"/>
+            <circle cx="20" cy="20" r="16" stroke="#31B8A6" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="project-info">
+          <h3>Medical Store Billing System</h3>
+          <p>Patient invoicing, insurance claim tracking and pharmacy stock for clinics.</p>
+          <span class="mono">HEALTHCARE · WEB APP</span>
+        </span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="section" id="contact" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="node pulse"></div>
+    <div class="section-head">
+      <span class="eyebrow">Contact</span>
+      <h2>Get a system running for your business</h2>
+      <p>Tell me what you're setting up — a shop counter, a restaurant, a clinic — and I'll get back to you with a plan and quote.</p>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-info-card">
+        <div class="info-row">
+          <i class="fa-solid fa-phone"></i>
+          <div><b>Call or WhatsApp</b><span>+977 98XXXXXXXX</span></div>
+        </div>
+        <div class="info-row">
+          <i class="fa-solid fa-envelope"></i>
+          <div><b>Email</b><span>contact@jagadishsubedi.com.np</span></div>
+        </div>
+        <div class="info-row">
+          <i class="fa-solid fa-location-dot"></i>
+          <div><b>Based in</b><span>Kathmandu, Nepal — on-site setup available</span></div>
+        </div>
+        <div class="info-row">
+          <i class="fa-solid fa-clock"></i>
+          <div><b>Support hours</b><span>Sun–Fri, 9 AM – 7 PM (NPT)</span></div>
+        </div>
+        <div class="social-row">
+          <a href="https://www.youtube.com/subedij" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.facebook.com/subedij" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://github.com/jagadishsu" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" placeholder="Your full name" required />
+          </div>
+          <div class="field">
+            <label for="cf-phone">Phone</label>
+            <input id="cf-phone" name="phone" type="tel" placeholder="98XXXXXXXX" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="cf-subject">What do you need?</label>
+          <select id="cf-subject" name="subject">
+            <option>POS System</option>
+            <option>Restaurant Management System</option>
+            <option>Medical Store Billing System</option>
+            <option>Hardware purchase</option>
+            <option>Support / repair</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="4" placeholder="Tell me a bit about your business and what you're looking for..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+          <i class="fa-solid fa-paper-plane"></i> Send message
+        </button>
+        <p class="form-note">This opens your email app with the message pre-filled to contact@jagadishsubedi.com.np.</p>
+        <p id="formStatus">Opening your email app…</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Copyright &copy; 2026 Jagadish Subedi. Built for the counters, kitchens and clinics that keep running.</div>
+</footer>
+
+<!-- ===== PROJECT MODAL ===== -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <div class="modal-head">
+      <span class="project-logo" id="modalLogo"></span>
+      <div>
+        <h3 id="modalTitle"></h3>
+        <span class="modal-sub" id="modalSub"></span>
+      </div>
+    </div>
+    <p class="desc" id="modalDesc"></p>
+    <ul class="feature-list" id="modalFeatures"></ul>
+    <div class="stack-row" id="modalStack"></div>
+  </div>
+</div>
+
+<script>
+// ---- Project data ----
+const projects = {
+  pos: {
+    title: "POS System",
+    sub: "RETAIL · DESKTOP + WEB",
+    logo: document.querySelector('[data-project="pos"] .project-logo').innerHTML,
+    desc: "A point-of-sale system built for small and mid-size retail shops. Handles checkout, stock levels and daily sales reporting from a single till, with support for barcode scanners and receipt printers out of the box.",
+    features: [
+      "Fast barcode checkout with keyboard-only mode",
+      "Live inventory levels with low-stock alerts",
+      "Daily, weekly and monthly sales reports",
+      "Multi-till support with a shared product catalog",
+      "Works offline and syncs when back online"
+    ],
+    stack: ["Windows/Web", "SQL", "Thermal printing", "Barcode I/O"]
+  },
+  restaurant: {
+    title: "Restaurant Management System",
+    sub: "HOSPITALITY · WEB APP",
+    logo: document.querySelector('[data-project="restaurant"] .project-logo').innerHTML,
+    desc: "An order-to-bill system for full-service restaurants. Waiters take orders on tablets, kitchens get printed tickets instantly, and the front desk closes out tables without re-entering anything.",
+    features: [
+      "Table-side ordering from tablet or phone",
+      "Automatic kitchen order ticket (KOT) printing",
+      "Split billing and multiple payment methods",
+      "Menu &amp; pricing management with combo items",
+      "Daily revenue and best-seller reports"
+    ],
+    stack: ["Web app", "Tablet ordering", "KOT printers", "SQL"]
+  },
+  medical: {
+    title: "Medical Store Billing System",
+    sub: "HEALTHCARE · WEB APP",
+    logo: document.querySelector('[data-project="medical"] .project-logo').innerHTML,
+    desc: "Billing and record-keeping software for clinics and small hospitals — patient invoices, insurance claims and pharmacy stock in one place, built for front-desk staff with no technical background.",
+    features: [
+      "Patient registration and visit history",
+      "Itemized invoices for consultations, tests and medicine",
+      "Insurance claim tracking from submission to payout",
+      "Pharmacy stock linked directly to prescriptions",
+      "Role-based access for reception, pharmacy and admin"
+    ],
+    stack: ["Web app", "SQL", "Role-based access", "Print invoicing"]
+  }
+};
+
+const modal = document.getElementById('projectModal');
+const modalLogo = document.getElementById('modalLogo');
+const modalTitle = document.getElementById('modalTitle');
+const modalSub = document.getElementById('modalSub');
+const modalDesc = document.getElementById('modalDesc');
+const modalFeatures = document.getElementById('modalFeatures');
+const modalStack = document.getElementById('modalStack');
+
+function openProject(key){
+  const p = projects[key];
+  if(!p) return;
+  modalLogo.innerHTML = p.logo;
+  modalTitle.textContent = p.title;
+  modalSub.textContent = p.sub;
+  modalDesc.innerHTML = p.desc;
+  modalFeatures.innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
+  modalStack.innerHTML = p.stack.map(s => `<span class="tag">${s}</span>`).join('');
+  modal.classList.add('open');
+  document.getElementById('modalClose').focus();
+}
+function closeModal(){
+  modal.classList.remove('open');
+}
+
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', () => openProject(card.dataset.project));
+});
+document.getElementById('modalClose').addEventListener('click', closeModal);
+modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+// ---- Product enquire buttons ----
+document.querySelectorAll('.enquire-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.dataset.product;
+    const subjectSelect = document.getElementById('cf-subject');
+    const opt = Array.from(subjectSelect.options).find(o => o.value.toLowerCase().includes('hardware') || o.text === 'Hardware purchase');
+    subjectSelect.value = 'Hardware purchase';
+    document.getElementById('cf-message').value = `Hi, I'd like to enquire about: ${name}. Please share availability and pricing.`;
+    document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+    document.getElementById('cf-name').focus();
+  });
+});
+
+// ---- Contact form: build mailto ----
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = document.getElementById('cf-name').value.trim();
+  const phone = document.getElementById('cf-phone').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const subject = document.getElementById('cf-subject').value;
+  const message = document.getElementById('cf-message').value.trim();
+
+  const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\n${message}`;
+  const mailto = `mailto:contact@jagadishsubedi.com.np?subject=${encodeURIComponent(subject + ' — enquiry from ' + name)}&body=${encodeURIComponent(body)}`;
+
+  const status = document.getElementById('formStatus');
+  status.style.display = 'block';
+  window.location.href = mailto;
+});
+</script>
+</body>
 </html>
