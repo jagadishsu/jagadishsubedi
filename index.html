@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="Jagadish Subedi — Hardware & Software Manager. POS systems, restaurant management, Medical Store Billing systems and retail hardware." />
+<meta name="description" content="Jagadish Subedi — Hardware & Software Manager. POS systems, restaurant management, medical billing systems and retail hardware." />
 <meta name="author" content="Jagadish Subedi" />
 <title>Jagadish Subedi — Hardware &amp; Software Manager</title>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -133,6 +133,14 @@ img{max-width:100%; display:block;}
   grid-template-columns:1.15fr 0.85fr;
   gap:56px;
   align-items:center;
+}
+.hero-avatar{
+  width:84px; height:84px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--copper);
+  box-shadow:0 0 0 5px var(--panel), 0 0 0 6px var(--line);
+  margin-bottom:20px;
 }
 .hero h1{
   font-size:clamp(2.2rem, 4vw, 3.4rem);
@@ -350,9 +358,10 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
   <div class="trace-rail" aria-hidden="true"></div>
   <div class="wrap hero-grid">
     <div>
+      <img src="jagadish.jpg" alt="Jagadish Subedi" class="hero-avatar" />
       <span class="eyebrow">Hardware &amp; Software Manager</span>
       <h1>I build the systems<br>businesses <span class="accent">run</span> on.</h1>
-      <p class="lead">From the barcode scanner on the counter to the billing software behind it — I design, install and support POS, restaurant and Medical Store Billing systems for businesses across Nepal.</p>
+      <p class="lead">From the barcode scanner on the counter to the billing software behind it — I design, install and support POS, restaurant and medical billing systems for businesses across Nepal.</p>
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-diagram-project"></i> View completed work</a>
         <a href="#products" class="btn btn-ghost"><i class="fa-solid fa-cart-shopping"></i> Browse hardware</a>
@@ -391,7 +400,7 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
         <p class="spec">15" touchscreen terminal, receipt printer, cash drawer &amp; barcode scanner — pre-loaded with billing software.</p>
         <div class="product-tags"><span class="tag">Bundle</span><span class="tag">Retail</span></div>
         <div class="price-row">
-          <div class="price">Rs 35,000<small>one-time</small></div>
+          <div class="price">Rs 45,000<small>one-time</small></div>
           <button class="enquire-btn" data-product="POS Terminal Bundle">Enquire</button>
         </div>
       </div>
@@ -402,7 +411,7 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
         <p class="spec">80mm high-speed thermal printer with USB &amp; LAN, compatible with all systems below.</p>
         <div class="product-tags"><span class="tag">Hardware</span></div>
         <div class="price-row">
-          <div class="price">Rs 12,000<small>one-time</small></div>
+          <div class="price">Rs 8,500<small>one-time</small></div>
           <button class="enquire-btn" data-product="Thermal Receipt Printer">Enquire</button>
         </div>
       </div>
@@ -509,7 +518,7 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
           </svg>
         </span>
         <span class="project-info">
-          <h3>Medical Store Billing System</h3>
+          <h3>Medical Billing System</h3>
           <p>Patient invoicing, insurance claim tracking and pharmacy stock for clinics.</p>
           <span class="mono">HEALTHCARE · WEB APP</span>
         </span>
@@ -533,7 +542,7 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
       <div class="contact-info-card">
         <div class="info-row">
           <i class="fa-solid fa-phone"></i>
-          <div><b>Call or WhatsApp</b><span>+977 9851224095</span></div>
+          <div><b>Call or WhatsApp</b><span>+977 98XXXXXXXX</span></div>
         </div>
         <div class="info-row">
           <i class="fa-solid fa-envelope"></i>
@@ -574,7 +583,7 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
           <select id="cf-subject" name="subject">
             <option>POS System</option>
             <option>Restaurant Management System</option>
-            <option>Medical Store Billing System</option>
+            <option>Medical Billing System</option>
             <option>Hardware purchase</option>
             <option>Support / repair</option>
             <option>Something else</option>
@@ -595,7 +604,7 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
 </section>
 
 <footer>
-  <div class="wrap">Copyright &copy; 2026 Jagadish Subedi.</div>
+  <div class="wrap">Copyright &copy; 2026 Jagadish Subedi. Built for the counters, kitchens and clinics that keep running.</div>
 </footer>
 
 <!-- ===== PROJECT MODAL ===== -->
@@ -647,7 +656,7 @@ const projects = {
     stack: ["Web app", "Tablet ordering", "KOT printers", "SQL"]
   },
   medical: {
-    title: "Medical Store Billing System",
+    title: "Medical Billing System",
     sub: "HEALTHCARE · WEB APP",
     logo: document.querySelector('[data-project="medical"] .project-logo').innerHTML,
     desc: "Billing and record-keeping software for clinics and small hospitals — patient invoices, insurance claims and pharmacy stock in one place, built for front-desk staff with no technical background.",
