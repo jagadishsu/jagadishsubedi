@@ -460,6 +460,17 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
         </div>
       </div>
 
+      <div class="product-card">
+        <div class="product-icon"><i class="fa-solid fa-people-group"></i></div>
+        <h3>Community Saving Management System</h3>
+        <p class="spec">Software for cooperatives &amp; saving groups — member accounts, deposits, loans and interest, all in one ledger.</p>
+        <div class="product-tags"><span class="tag">Software</span><span class="tag">Cooperative</span></div>
+        <div class="price-row">
+          <div class="price">Contact<small>per year</small></div>
+          <button class="enquire-btn" data-product="Community Saving Management System">Enquire</button>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -519,8 +530,25 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
         </span>
         <span class="project-info">
           <h3>Medical Store Billing System</h3>
-          <p>Patient invoicing, insurance claim tracking and pharmacy stock for clinics.</p>
-          <span class="mono">HEALTHCARE · WEB APP</span>
+          <p>A comprehensive Medical Store POS & Billing System requires features tailored to pharmacy operations.</p>
+          <span class="mono">Medical Store Billing · WEB APP</span>
+        </span>
+      </button>
+
+      <button class="project-card" data-project="saving">
+        <span class="project-logo">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="14" cy="16" r="6" stroke="#31B8A6" stroke-width="2.2"/>
+            <circle cx="26" cy="16" r="6" stroke="#31B8A6" stroke-width="2.2"/>
+            <path d="M6 33C6 27.5 9.6 24 14 24C16.2 24 18.2 24.9 19.6 26.3" stroke="#CC8A4A" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M34 33C34 27.5 30.4 24 26 24C23.8 24 21.8 24.9 20.4 26.3" stroke="#CC8A4A" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M20 30V33" stroke="#CC8A4A" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="project-info">
+          <h3>Community Saving Management System</h3>
+          <p>Member accounts, deposits, loans and interest tracking for saving groups &amp; cooperatives.</p>
+          <span class="mono">COOPERATIVE · WEB APP</span>
         </span>
       </button>
 
@@ -542,7 +570,7 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
       <div class="contact-info-card">
         <div class="info-row">
           <i class="fa-solid fa-phone"></i>
-          <div><b>Call or WhatsApp</b><span>+977 9851224095</span></div>
+          <div><b>Call or WhatsApp</b><span>+977 951224095</div>
         </div>
         <div class="info-row">
           <i class="fa-solid fa-envelope"></i>
@@ -554,7 +582,7 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
         </div>
         <div class="info-row">
           <i class="fa-solid fa-clock"></i>
-          <div><b>Support hours</b><span>Mon–Fri, 9 AM – 7 PM (NPT)</span></div>
+          <div><b>Support hours</b><span>Mon–Fri, 10 AM – 6 PM (NPT)</span></div>
         </div>
         <div class="social-row">
           <a href="https://www.youtube.com/subedij" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
@@ -604,7 +632,7 @@ footer{padding:32px 0; text-align:center; color:var(--muted); font-size:0.85rem;
 </section>
 
 <footer>
-  <div class="wrap">Copyright &copy; 2026 Jagadish Subedi. </div>
+  <div class="wrap">Copyright &copy; 2026 Jagadish Subedi</div>
 </footer>
 
 <!-- ===== PROJECT MODAL ===== -->
@@ -661,13 +689,27 @@ const projects = {
     logo: document.querySelector('[data-project="medical"] .project-logo').innerHTML,
     desc: "A comprehensive Medical Store POS & Billing System requires features tailored to pharmacy operations, including batch tracking, expiry management, drug compliance, and fast checkout.",
     features: [
-      "Core POS & Billing Module.",
-      "Inventory & Batch Management.",
-      "Patient & Customer Management.",
-      "Purchase & Supplier Management.",
-      "Reports & Financial Analytics."
+      "Core POS & Billing Module",
+      "Inventory & Batch Management",
+      "Patient & Customer Management",
+      "Purchase & Supplier Management",
+      "Reports & Financial Analytics"
     ],
     stack: ["Web app", "SQL", "Role-based access", "Print invoicing"]
+  },
+  saving: {
+    title: "Community Saving Management System",
+    sub: "COOPERATIVE · WEB APP",
+    logo: document.querySelector('[data-project="saving"] .project-logo').innerHTML,
+    desc: "A record-keeping system for community saving groups and small cooperatives — tracks every member's deposits, withdrawals and loans, and calculates interest automatically at each cycle.",
+    features: [
+      "Member accounts with full deposit &amp; withdrawal history",
+      "Loan issuing with configurable interest rates and schedules",
+      "Automatic interest calculation at each saving cycle",
+      "Meeting-wise collection sheets for group treasurers",
+      "Individual passbook-style statements members can print"
+    ],
+    stack: ["Web app", "SQL", "Print statements", "Role-based access"]
   }
 };
 
